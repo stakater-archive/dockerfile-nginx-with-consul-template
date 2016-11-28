@@ -18,7 +18,9 @@ ENV 				CONSUL_URL consul:8500
 # download the latest version of Consul Template and we put it on /usr/local/bin
 
 ADD 				https://releases.hashicorp.com/consul-template/${CONSUL_TEMPLATE_VERSION}/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip /usr/bin/
-RUN 				unzip /usr/bin/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip
+RUN 				unzip /usr/bin/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip && \
+    				mv consul-template /usr/local/bin/consul-template &&\
+    				rm -rf /usr/bin/consul-template_${CONSUL_TEMPLATE_VERSION}_linux_amd64.zip
 
 # we define a volume /templates, which is where we will mount our template files from the host. This way we can reuse 
 # the same image for different services and templates.

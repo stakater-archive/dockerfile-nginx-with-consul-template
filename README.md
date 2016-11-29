@@ -11,6 +11,8 @@ The daemon consul-template queries a Consul instance and updates any number of s
 
 Nginx is popular open source web server, reverse proxy, and load balancer
 
+`docker run -p 8080:80 -d --name nginx --volume /home/core/templates:/templates --link consul:consul stakater/nginx-with-consul-template:latest`
+
 consul-template -consul=$CONSUL_URL -template="/templates/service.ctmpl:/etc/nginx/conf.d/service.conf:service nginx reload"
 
 consul-template -consul=$CONSUL_URL -template="/templates/service.ctmpl:/etc/nginx/conf.d/service.conf" -exec="service nginx reload"

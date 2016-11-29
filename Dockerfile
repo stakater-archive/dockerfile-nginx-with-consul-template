@@ -6,7 +6,9 @@ MAINTAINER          Rasheed Amir <rasheed@aurorasolutions.io>
 ARG                 CONSUL_TEMPLATE_VERSION=0.16.0
 
 # remove all default configurations from Nginx
-RUN 				rm -v /etc/nginx/sites-available/*
+RUN 				rm -v /etc/nginx/nginx.conf
+RUN 				rm -rf /etc/nginx/sites-available/
+#RUN 				rm -rf /etc/nginx/sites-enabled/
 
 # we define an environment variable with the location of our Consul cluster. By default, it will try to resolve to
 # consul:8500 which would be the behavior if we have Consul running as a container in the same host and we link it to this 

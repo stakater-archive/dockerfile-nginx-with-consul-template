@@ -3,7 +3,7 @@ FROM 	 stakater/nginx:latest
 LABEL  authors="Hazim <hazim_malik@hotmail.com>, Rasheed Amir <rasheed@aurorasolutions.io>"
 
 # setting a default value to make it work on dockerhub
-ARG    CONSUL_TEMPLATE_VERSION=0.16.0
+ARG    CONSUL_TEMPLATE_VERSION=0.18.0-rc1
 
 # remove all default configurations from Nginx
 RUN 	 rm -rf /etc/nginx/sites-available/

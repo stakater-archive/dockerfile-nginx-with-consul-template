@@ -33,3 +33,7 @@ RUN     mkdir -p /etc/service/nginx && rm -rf /etc/service/nginx/*
 
 # Add daemon service for nginx-with-consul
 ADD     start.sh /etc/service/nginx/run
+
+# TODO: Remove this when stakater/nginx is fixed
+# Use base phusion image's cmd
+CMD ["/sbin/my_init"]
